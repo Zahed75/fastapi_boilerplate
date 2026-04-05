@@ -20,6 +20,7 @@ class User(BaseModel):
     updated_at=Column(TIMESTAMP, nullable=False, default=lambda:datetime.now(datetime.timezone.utc),onupdate=datetime.timezone.utc)
 
     categories=relationship("Category", back_populates= 'user')
+    categories=relationship("Category", back_populates= 'user')
 
 
 
