@@ -21,6 +21,7 @@ class User(BaseModel):
 
     categories=relationship("Category", back_populates= 'user')
     categories=relationship("Category", back_populates= 'user')
+    categories=relationship("Category", back_populates= 'user')
 
 
 
