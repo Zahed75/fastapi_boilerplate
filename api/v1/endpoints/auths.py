@@ -13,6 +13,18 @@ async def registrations():
 
 
 
+@router.post("/send_otp")
+
+async def send_otp():
+    return {"message": "OTP sent successfully"}
+
+
+@router.post("/set_password")
+async def set_password():
+    return {"message": "Password sent successfully"}
+
+
+
 
 @router.post("/otp-verify")
 async def otp_verify():
