@@ -14,10 +14,10 @@ class User(BaseModel):
     password = Column(String, nullable=False)
     otp = Column(String, nullable=False)
 
-    category = relationship("Category", back_populates='user')
-    products = relationship("Product", back_populates='user')
-    invoices = relationship("InvoiceProduct", back_populates='user')
-    customer = relationship("Customer", back_populates='user')
+    category = relationship("Category", back_populates='users')
+    products = relationship("Product", back_populates='users')
+    invoices = relationship("InvoiceProduct", back_populates='users')
+    customer = relationship("Customer", back_populates='users')
     created_at = Column(TIMESTAMP, nullable=False, default=lambda: datetime.now(datetime.timezone.utc))
     updated_at = Column(TIMESTAMP, nullable=False, default=lambda: datetime.now(datetime.timezone.utc),
                         onupdate=datetime.timezone.utc)
