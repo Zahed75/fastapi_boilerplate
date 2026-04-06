@@ -18,7 +18,7 @@ class User(BaseModel):
 
     category = relationship("Category", back_populates='user')
     products=relationship("Product", back_populates='user')
-    invoices=relationship("Invoice", back_populates='user')
+    invoices=relationship("InvoiceProduct", back_populates='user')
 
 
 
