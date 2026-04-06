@@ -17,6 +17,7 @@ class Product(Base):
     img_url = Column(String, nullable=False)
     users=relationship("User", back_populates="products")
     categories=relationship("Category", back_populates="products")
+    invoice_products = relationship("InvoiceProduct", back_populates="products")
     created_at = Column(TIMESTAMP, nullable=False, default=lambda: datetime.now(datetime.timezone.utc))
     updated_at = Column(TIMESTAMP, nullable=False, default=lambda: datetime.now(datetime.timezone.utc))
 
