@@ -1,7 +1,4 @@
 import datetime
-
-import nullable
-from pygments.lexer import default
 from sqlalchemy import Column, Integer, String, DateTime, Float, ForeignKey, column, TIMESTAMP
 from pydantic import BaseModel
 from sqlalchemy.orm import relationship
@@ -19,7 +16,9 @@ class User(BaseModel):
     created_at=Column(TIMESTAMP, nullable=False, default=lambda:datetime.now(datetime.timezone.utc))
     updated_at=Column(TIMESTAMP, nullable=False, default=lambda:datetime.now(datetime.timezone.utc),onupdate=datetime.timezone.utc)
 
-    category = relationship("Category", back_populates="user")
+    category = relationship("Category", back_populates='user')
+    products=relationship("Product", back_populates='user')
+    invoices=relationship("Invoice", back_populates='user')
 
 
 
