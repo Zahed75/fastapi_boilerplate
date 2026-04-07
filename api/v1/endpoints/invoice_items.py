@@ -2,12 +2,12 @@ from fastapi import APIRouter
 router = APIRouter()
 
 
-@router.post("create_invoice_items")
+@router.post("/create_invoice_items")
 async def create_invoice_items():
     return {"message": "invoice_items created successfully"}
 
 
-@router.get("get_categories")
+@router.get("/get_categories")
 async def read_categories():
     return {"message": "Categories retrieved successfully"}
 

@@ -2,12 +2,12 @@ from fastapi import APIRouter
 router = APIRouter()
 
 
-@router.post("create_category")
+@router.post("/create_category")
 async def create_category():
     return {"message": "Category created successfully"}
 
 
-@router.get("get_categories")
+@router.get("/get_categories")
 async def get_categories():
     return {"message": "Categories retrieved successfully"}
 
