@@ -6,3 +6,11 @@ DATABASE_URL = "postgresql://username:password@localhost:5432/database_name"
 
 engine = create_engine(DATABASE_URL,pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False,autoflush=True,bind=engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+
+    finally:
+        db.close()
