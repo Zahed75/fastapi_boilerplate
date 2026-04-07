@@ -7,8 +7,8 @@ async def create_invoices():
     return {"message": "invoices created successfully"}
 
 
-@router.get("get_categories")
-async def get_categories():
+@router.get("get_invoice")
+async def get_invoice():
     return {"message": "Categories retrieved successfully"}
 
 
