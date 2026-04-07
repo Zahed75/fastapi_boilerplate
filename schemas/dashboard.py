@@ -1,9 +1,11 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
-
-from models.base import Base
+from pydantic import BaseModel
 
 
-class Dashboard(Base):
-    __tablename__ = "dashboard"
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
+class DashboardStatus(BaseModel):
+    total_customer:int
+    total_product:int
+    total_categories:int
+    total_invoices:int
+    total_revenue:int
+
+
