@@ -1,16 +1,36 @@
-# This is a sample Python script.
+from contextlib import asynccontextmanager
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from core.database import create_tables
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Starting Application")
+    create_tables()
+    print("Database Created Successfully")
+    yield
+    print("Shutting Down Application...")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
+
+app=FastAPI(
+    title="This is FASTAPI Boilerplate",
+    description="Boilerplate-Zahed Hasan",
+    docs_url="/",
+    redoc_url="/redoc",
+    lifespan=lifespan
+)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+
+)
